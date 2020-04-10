@@ -2,9 +2,9 @@
 
 2019-2020 mysql final test
 
-姓名：
+姓名： 郭剑
 
-学号：
+学号： 17061816
 
 说明1：考试为开卷，可以上网，自觉不要相互电话和QQ；
 
@@ -30,6 +30,44 @@ deptno, deptno,    loc
 (20, "RESEARCH", "DALLAS"),
 (30, "SALES", "CHICAGO"),
 (40, "OPERATIONS", "BOSTON")
+```
+代码
+```
+create table t_dept2(
+    -> depton int,
+    -> dname varchar(20),
+    -> loc varchar(40)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> describe t_dept2;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| depton | int(11)     | YES  |     | NULL    |       |
+| dname  | varchar(20) | YES  |     | NULL    |       |
+| loc    | varchar(40) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+insert into t_dept2(depton,dname,loc)
+    -> values(10,'ACCOUNING','NEW YORK'),
+    -> (20,'RESEARCH','DALLAS'),
+    -> (30,'SALES','CHICAGO'),
+    -> (40,'OPERATIONS','BOSTON');
+Query OK, 4 rows affected (0.00 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> SELECT*FROM t_dept2;
++--------+------------+----------+
+| depton | dname      | loc      |
++--------+------------+----------+
+|     10 | ACCOUNING  | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
++--------+------------+----------+
+4 rows in set (0.00 sec)
+
 ```
 
 表2：其中empno字段为主键
@@ -83,6 +121,8 @@ deptno, deptno,    loc
 4.2 显示该账号权限
 
 4.3 `with grant option` 是什么意思。
+
+对象的owner将权限赋予某个用户
 
 5 表 1 和表 2 这样设计是否符合第一范式，是否符合第二范式，为什么？
 
